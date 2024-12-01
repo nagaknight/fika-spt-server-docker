@@ -34,7 +34,7 @@ That's it! The image has everything else you need to run an SPT Server, with Fik
 
 
 # 🪄 Features
-- 📦 Prepackaged images versioned by SPT version e.g. `fika-spt-server-docker:3.10.0` for SPT `3.10.0`. Images are hosted in ghcr and come prebuilt with a working SPT server binary, and the latest compatible Fika servermod is downloaded and installed on container startup if enabled.
+- 📦 Prepackaged images versioned by SPT version e.g. `fika-spt-server-docker:3.10.1` for SPT `3.10.1`. Images are hosted in ghcr and come prebuilt with a working SPT server binary, and the latest compatible Fika servermod is downloaded and installed on container startup if enabled.
 - ♻️ Reuse an existing installation of SPT! Just mount your existing SPT server folder
 - 💾 Automatic profile backups by default! Profiles are copied to a backup folder every day at 00:00 UTC
 - 🔒 Configurable running user and ownership of server files. Control file ownership from the host, or let the container take ownership to ease permissions issues.
@@ -44,7 +44,7 @@ That's it! The image has everything else you need to run an SPT Server, with Fik
 # 🥡 Releases
 The image build is triggered off release tags and hosted on ghcr
 ```
-docker pull ghcr.io/zhliau/fika-spt-server-docker:3.10.0
+docker pull ghcr.io/nagaknight/fika-spt-server-docker:3.10.1
 ```
 Check the pane on the right for the different version tags available, if you don't want to use the latest SPT release.
 
@@ -56,7 +56,7 @@ docker run --name fika-server \
   -e LISTEN_ALL_NETWORKS=true \
   -v /path/to/server/files:/opt/server \
   -p 6969:6969 \
-  ghcr.io/zhliau/fika-spt-server-docker:3.10.0
+  ghcr.io/nagaknight/fika-spt-server-docker:3.10.1
 ```
 
 ### docker-compose
@@ -66,7 +66,7 @@ Minimal usage
 ```yaml
 services:
   fika-server:
-    image: ghcr.io/zhliau/fika-spt-server-docker:latest
+    image: ghcr.io/nagaknight/fika-spt-server-docker:latest
     environment:
       - INSTALL_FIKA=true
       # This will automatically set SPT server's configs to work in a containerized environment
@@ -82,7 +82,7 @@ If you want to run the server as a different user than root, set UID and GID
 ```yaml
 services:
   fika-server:
-    image: ghcr.io/zhliau/fika-spt-server-docker:latest
+    image: ghcr.io/nagaknight/fika-spt-server-docker:latest
     # ...
     environment:
       # Provide the uid/gid of the user to run the server, or it will default to 0 (root)
@@ -96,7 +96,7 @@ If you want to automatically install Fika, set `INSTALL_FIKA` to `true`
 ```yaml
 services:
   fika-server:
-    image: ghcr.io/zhliau/fika-spt-server-docker:latest
+    image: ghcr.io/nagaknight/fika-spt-server-docker:latest
     # ...
     environment:
       # ...
@@ -119,7 +119,7 @@ Enable auto updates by setting the correct environment variables
 ```yaml
 services:
   fika-server:
-    image: ghcr.io/zhliau/fika-spt-server-docker:latest
+    image: ghcr.io/nagaknight/fika-spt-server-docker:latest
     # ...
     environment:
       # ...
@@ -147,7 +147,7 @@ The container will validate your Fika server mod version matches the image's exp
 > If you've made any changes to files within `SPT_Data`, make backups! This upgrade process will remove that folder!
 
 A new image will be tagged with the new SPT version number, and thus you will need to
-- Update the image version tag e.g. `fika-spt-server-docker:3.9.8` to `fika-spt-server-docker:3.10.0`
+- Update the image version tag e.g. `fika-spt-server-docker:3.9.8` to `fika-spt-server-docker:3.10.1`
 - Pull the new image with `docker pull` or `docker-compose pull`
 - Bring up the container again with `docker run` or `docker-compose up`
 
@@ -261,6 +261,6 @@ This will change the values of `ip` and `backendIp` in `SPT_Data/Server/configs/
 # 💻 Development
 ### Building
 ```
-# Server binary built using SPT Server 3.10.0 git tag, image tagged as fika-spt-server:1.0
-$ VERSION=1.0 SPT_SHA=3.10.0 ./build
+# Server binary built using SPT Server 3.10.1 git tag, image tagged as fika-spt-server:1.0
+$ VERSION=1.0 SPT_SHA=3.10.1 ./build
 ```
