@@ -89,7 +89,7 @@ services:
       # You can get your host user's uid/gid by running the id command
       # ...
       - UID=1000
-      - GID=1000
+      - GID=100
 ```
 
 If you want to automatically install Fika, set `INSTALL_FIKA` to `true`
