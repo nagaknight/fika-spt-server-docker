@@ -9,6 +9,7 @@ on:
   push:
     # Publish semver tags as releases.
     tags: [ '*.*.*' ]
+    branches: [ "master" ]
   pull_request:
     branches: [ "master" ]
 

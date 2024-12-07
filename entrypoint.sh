@@ -3,13 +3,13 @@
 build_dir=/opt/build
 mounted_dir=/opt/server
 spt_binary=SPT.Server.exe
-uid=${UID:-1000}
-gid=${GID:-1000}
+uid=${UID:-3000}
+gid=${GID:-3000}
 
 backup_dir_name=${BACKUP_DIR:-backups}
 backup_dir=$mounted_dir/$backup_dir_name
 
-spt_version=${SPT_VERSION:-3.10.1}
+spt_version=${SPT_VERSION:-3.10.2}
 spt_backup_dir=$backup_dir/spt/$(date +%Y%m%dT%H%M)
 spt_data_dir=$mounted_dir/SPT_Data
 spt_core_config=$spt_data_dir/Server/configs/core.json
