@@ -48,7 +48,7 @@ RUN apt update && apt install -y --no-install-recommends \
 
 WORKDIR /opt/server
 
-ARG SPT_SERVER_SHA=master
+ARG SPT_SERVER_SHA=3.10.2
 ARG FIKA_VERSION=v2.3.0
 ENV SPT_VERSION=$SPT_SERVER_SHA
 ENV FIKA_VERSION=$FIKA_VERSION
